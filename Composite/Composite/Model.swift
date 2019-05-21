@@ -10,16 +10,20 @@ import Foundation
 
 protocol NovaPoshta {
     var name: String {get set}
+    var price: Int {get set}
     func showContent() -> [NovaPoshta]?
     func addComponent(new: NovaPoshta)
     func contentCount() -> Int?
 }
 
 class Product: NovaPoshta {
+    var price: Int
+    
     var name: String
     
-    init(name: String) {
+    init(name: String, price: Int) {
         self.name = name
+        self.price = price
     }
     
     func showContent() -> [NovaPoshta]? {
@@ -36,12 +40,26 @@ class Product: NovaPoshta {
 }
 
 class Folder: NovaPoshta {
+    var price: Int {
+        get {
+            var totalFolderPrice = 0
+            for item in arrayOfContent {
+                totalFolderPrice += item.price
+            }
+            return totalFolderPrice
+        }
+        set {
+            
+        }
+    }
+    
     var name: String
     
     private var arrayOfContent = [NovaPoshta]()
     
     init(name: String) {
         self.name = name
+        self.price = 0
     }
     
     func showContent() -> [NovaPoshta]? {
@@ -55,6 +73,4 @@ class Folder: NovaPoshta {
     func contentCount() -> Int? {
         return self.arrayOfContent.count
     }
-    
-    
 }

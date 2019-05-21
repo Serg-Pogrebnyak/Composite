@@ -22,20 +22,21 @@ class ProductListTableViewController: UITableViewController {
         let myFoolder = Folder(name: "My Foolder")
         
         let foolder = Folder(name: "Not big, but not small")
-        foolder.addComponent(new: Product(name: "new pen"))
-        foolder.addComponent(new: Product(name: "new pencill"))
-        foolder.addComponent(new: Product(name: "new book"))
+        foolder.addComponent(new: Product(name: "new pen", price: 5))
+        foolder.addComponent(new: Product(name: "new pencill", price: 4))
+        foolder.addComponent(new: Product(name: "new book", price: 8))
         
         myFoolder.addComponent(new: foolder)
 
-        myFoolder.addComponent(new: Product(name: "Pen"))
-        myFoolder.addComponent(new: Product(name: "Pencil"))
+        myFoolder.addComponent(new: Product(name: "Pen", price: 40))
+        myFoolder.addComponent(new: Product(name: "Pencil", price: 20))
         myFoolder.addComponent(new: Folder(name: "Middle"))
-        myFoolder.addComponent(new: Product(name: "Book"))
+        myFoolder.addComponent(new: Product(name: "Book", price: 10))
         myFoolder.addComponent(new: Folder(name: "Big"))
         myFoolder.addComponent(new: Folder(name: "Small"))
         
         productArray.append(myFoolder)
+        print(myFoolder.price)
         
         tableView.reloadData()
     }
@@ -46,7 +47,7 @@ class ProductListTableViewController: UITableViewController {
     }
     
     @IBAction func createProduct(_ sender: Any) {
-        productArray.append(Product(name: "New Product"))
+        productArray.append(Product(name: "New Product", price: 10))
         tableView.reloadData()
     }
     
