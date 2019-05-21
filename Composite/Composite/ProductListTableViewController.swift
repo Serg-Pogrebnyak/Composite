@@ -10,6 +10,7 @@ import UIKit
 
 class ProductListTableViewController: UITableViewController {
 
+    @IBOutlet fileprivate weak var priceLabel: UILabel!
     @IBOutlet fileprivate weak var backButton: UIBarButtonItem!
     fileprivate var productArray = [NovaPoshta]()
     fileprivate var folderFlow = [NovaPoshta]()
@@ -51,6 +52,7 @@ class ProductListTableViewController: UITableViewController {
         let newProduct = Product(name: "New Product", price: 10)
         productArray.append(newProduct)
         folderFlow.last?.addComponent(new: newProduct)
+        priceLabel.text = "price \(folderFlow.last!.price)"
         tableView.reloadData()
     }
     
@@ -65,6 +67,7 @@ class ProductListTableViewController: UITableViewController {
             backButton.isEnabled = false
             tableView.reloadData()
         }
+        priceLabel.text = "price \(folderFlow.last!.price)"
     }
     
     // MARK: - Table view data source
@@ -84,6 +87,7 @@ class ProductListTableViewController: UITableViewController {
             folderFlow.append(productArray[indexPath.row])
             productArray = productArray[indexPath.row].showContent()!
             backButton.isEnabled = true
+            priceLabel.text = "price \(folderFlow.last!.price)"
             print(folderFlow)
             tableView.reloadData()
         } else {
