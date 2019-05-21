@@ -33,17 +33,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ewP-um-QRP">
-                        <barButtonItem key="leftBarButtonItem" title="Product" id="wMu-gI-N37">
-                            <connections>
-                                <action selector="createProduct:" destination="2yg-kQ-VW7" id="hub-yS-1uD"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem enabled="NO" title="   &lt;  " id="G8G-8j-Ya8">
+                                <connections>
+                                    <action selector="backButton:" destination="2yg-kQ-VW7" id="Vw2-CR-xyb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Product" id="wMu-gI-N37">
+                                <connections>
+                                    <action selector="createProduct:" destination="2yg-kQ-VW7" id="hub-yS-1uD"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Folder" id="tjD-pQ-2sW">
                             <connections>
                                 <action selector="createFolder:" destination="2yg-kQ-VW7" id="Epj-4h-xVv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="G8G-8j-Ya8" id="6H1-cg-YfW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0m-QV-NwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
