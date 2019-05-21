@@ -10,7 +10,7 @@ import Foundation
 
 protocol NovaPoshta {
     var name: String {get set}
-    func showContent() -> Any?
+    func showContent() -> [NovaPoshta]?
     func addComponent(new: NovaPoshta)
     func contentCount() -> Int?
 }
@@ -22,7 +22,7 @@ class Product: NovaPoshta {
         self.name = name
     }
     
-    func showContent() -> Any? {
+    func showContent() -> [NovaPoshta]? {
         return nil
     }
     
@@ -44,7 +44,7 @@ class Folder: NovaPoshta {
         self.name = name
     }
     
-    func showContent() -> Any? {
+    func showContent() -> [NovaPoshta]? {
         return arrayOfContent
     }
     

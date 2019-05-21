@@ -11,10 +11,10 @@
 		0B977DB22293D99B000CE174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB02293D99B000CE174 /* Main.storyboard */; };
 		0B977DB42293D99C000CE174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB32293D99C000CE174 /* Assets.xcassets */; };
 		0B977DB72293D99C000CE174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB52293D99C000CE174 /* LaunchScreen.storyboard */; };
-		0B977DBF2293E135000CE174 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DBE2293E135000CE174 /* ProductListTableViewController.swift */; };
 		0B977DC12293E23B000CE174 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DC02293E23B000CE174 /* Model.swift */; };
 		0B977DC42293E5B9000CE174 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DC32293E5B9000CE174 /* ProductCell.xib */; };
 		0B977DC62293E5E1000CE174 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DC52293E5E1000CE174 /* ProductCell.swift */; };
+		0BDF668E229405DF003E9745 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DBE2293E135000CE174 /* ProductListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,7 +156,7 @@
 				0B977DC12293E23B000CE174 /* Model.swift in Sources */,
 				0B977DC62293E5E1000CE174 /* ProductCell.swift in Sources */,
 				0B977DAD2293D99B000CE174 /* AppDelegate.swift in Sources */,
-				0B977DBF2293E135000CE174 /* ProductListTableViewController.swift in Sources */,
+				0BDF668E229405DF003E9745 /* ProductListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,18 @@
                             <outlet property="delegate" destination="2yg-kQ-VW7" id="nbt-im-2Cp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ewP-um-QRP"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ewP-um-QRP">
+                        <barButtonItem key="leftBarButtonItem" title="Product" id="wMu-gI-N37">
+                            <connections>
+                                <action selector="createProduct:" destination="2yg-kQ-VW7" id="hub-yS-1uD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Folder" id="tjD-pQ-2sW">
+                            <connections>
+                                <action selector="createFolder:" destination="2yg-kQ-VW7" id="Epj-4h-xVv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0m-QV-NwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
