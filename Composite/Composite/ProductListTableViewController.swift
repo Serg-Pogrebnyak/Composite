@@ -58,16 +58,17 @@ class ProductListTableViewController: UITableViewController {
     
     @IBAction func backButton(_ sender: Any) {
         if folderFlow.count >= 2 {
+            priceLabel.text = "price \(folderFlow.last!.price)"
             folderFlow.removeLast()
             productArray = folderFlow.last!.showContent()!
             tableView.reloadData()
         } else if folderFlow.count == 1 {
+            priceLabel.text = "price \(folderFlow.last!.price)"
             productArray = folderFlow
             folderFlow.removeLast()
             backButton.isEnabled = false
             tableView.reloadData()
         }
-        priceLabel.text = "price \(folderFlow.last!.price)"
     }
     
     // MARK: - Table view data source
