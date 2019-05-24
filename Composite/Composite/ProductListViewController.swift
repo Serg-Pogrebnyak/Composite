@@ -1,17 +1,18 @@
 //
-//  ProductListTableViewController.swift
+//  ProductListViewController.swift
 //  Composite
 //
-//  Created by Sergey Pohrebnuak on 5/21/19.
+//  Created by Sergey Pohrebnuak on 5/23/19.
 //  Copyright © 2019 Sergey Pohrebnuak. All rights reserved.
 //
 
 import UIKit
 
-class ProductListTableViewController: UITableViewController {
+class ProductListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var priceLabel: UILabel!
-    @IBOutlet fileprivate weak var backButton: UIBarButtonItem!
+    @IBOutlet fileprivate weak var backButton: UIButton!
     fileprivate var productArray = [NovaPoshta]()
     fileprivate var folderFlow = [NovaPoshta]()
     
@@ -71,18 +72,21 @@ class ProductListTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func editTable(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
         cell.setDataInCell(item: productArray[indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if productArray[indexPath.row].contentCount() ?? -1 >= 0 {
             tableView.deselectRow(at: indexPath, animated: false)
             folderFlow.append(productArray[indexPath.row])
@@ -94,5 +98,18 @@ class ProductListTableViewController: UITableViewController {
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    //cell moving
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        (folderFlow.last! as! Folder).switchSomeProduct(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }

@@ -6,66 +6,119 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="FWH-sp-4rp">
+        <!--Product List View Controller-->
+        <scene sceneID="jRG-JY-QPg">
             <objects>
-                <tableViewController id="2yg-kQ-VW7" customClass="ProductListTableViewController" customModule="Composite" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="dya-9L-VzW">
+                <viewController id="FFE-1D-BZQ" customClass="ProductListViewController" customModule="Composite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bPV-oE-ybR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aog-36-Bg6">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="bny-4H-19e">
-                                <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bny-4H-19e" id="93G-ta-VWr">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2yg-kQ-VW7" id="9wt-e9-cpb"/>
-                            <outlet property="delegate" destination="2yg-kQ-VW7" id="nbt-im-2Cp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ewP-um-QRP">
-                        <leftBarButtonItems>
-                            <barButtonItem enabled="NO" title="   &lt;  " id="G8G-8j-Ya8">
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-hM-yj5">
+                                <rect key="frame" x="0.0" y="184" width="414" height="552"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" id="gsL-QO-njh">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gsL-QO-njh" id="Qjx-mv-Iut">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="backButton:" destination="2yg-kQ-VW7" id="Vw2-CR-xyb"/>
+                                    <outlet property="dataSource" destination="FFE-1D-BZQ" id="7Bb-9f-5cr"/>
+                                    <outlet property="delegate" destination="FFE-1D-BZQ" id="Jwu-rX-Z7X"/>
                                 </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Product" id="wMu-gI-N37">
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lu-O0-IBF">
+                                <rect key="frame" x="20" y="64" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="kR6-aL-AF8"/>
+                                </constraints>
+                                <state key="normal" title="Product"/>
                                 <connections>
-                                    <action selector="createProduct:" destination="2yg-kQ-VW7" id="hub-yS-1uD"/>
+                                    <action selector="createProduct:" destination="FFE-1D-BZQ" eventType="touchUpInside" id="KJD-9b-caI"/>
                                 </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Folder" id="tjD-pQ-2sW">
-                            <connections>
-                                <action selector="createFolder:" destination="2yg-kQ-VW7" id="Epj-4h-xVv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ole-ss-O7Y">
+                                <rect key="frame" x="20" y="104" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="qFP-sU-zlu"/>
+                                </constraints>
+                                <state key="normal" title="Folder"/>
+                                <connections>
+                                    <action selector="createFolder:" destination="FFE-1D-BZQ" eventType="touchUpInside" id="Zdt-hs-XmM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d07-VM-nA1">
+                                <rect key="frame" x="294" y="64" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="f2K-e7-04e"/>
+                                </constraints>
+                                <state key="normal" title="Edit table"/>
+                                <connections>
+                                    <action selector="editTable:" destination="FFE-1D-BZQ" eventType="touchUpInside" id="qaz-39-Wja"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83N-d4-s00">
+                                <rect key="frame" x="299" y="104" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="tKk-sf-QEN"/>
+                                    <constraint firstAttribute="height" constant="21" id="wCH-SE-k1Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPC-N2-Dd6">
+                                <rect key="frame" x="20" y="144" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="JuF-zO-17Z"/>
+                                </constraints>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="backButton:" destination="FFE-1D-BZQ" eventType="touchUpInside" id="hsN-OC-WKD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gtb-hM-yj5" firstAttribute="bottom" secondItem="OmA-yF-ttR" secondAttribute="bottom" id="4n7-1d-AEk"/>
+                            <constraint firstItem="JPC-N2-Dd6" firstAttribute="leading" secondItem="OmA-yF-ttR" secondAttribute="leading" constant="20" id="5XH-bV-Sge"/>
+                            <constraint firstItem="ole-ss-O7Y" firstAttribute="top" secondItem="4Lu-O0-IBF" secondAttribute="bottom" constant="10" id="6zC-eS-bEL"/>
+                            <constraint firstItem="OmA-yF-ttR" firstAttribute="trailing" secondItem="83N-d4-s00" secondAttribute="trailing" constant="15" id="M2H-Z8-xAS"/>
+                            <constraint firstItem="4Lu-O0-IBF" firstAttribute="top" secondItem="OmA-yF-ttR" secondAttribute="top" id="Ord-YH-laq"/>
+                            <constraint firstItem="gtb-hM-yj5" firstAttribute="leading" secondItem="OmA-yF-ttR" secondAttribute="leading" id="U25-fN-NzG"/>
+                            <constraint firstItem="gtb-hM-yj5" firstAttribute="top" secondItem="JPC-N2-Dd6" secondAttribute="bottom" constant="10" id="VzD-45-ebm"/>
+                            <constraint firstItem="JPC-N2-Dd6" firstAttribute="top" secondItem="ole-ss-O7Y" secondAttribute="bottom" constant="10" id="asK-a0-yug"/>
+                            <constraint firstItem="d07-VM-nA1" firstAttribute="top" secondItem="OmA-yF-ttR" secondAttribute="top" id="b2v-ph-Z7T"/>
+                            <constraint firstItem="gtb-hM-yj5" firstAttribute="trailing" secondItem="OmA-yF-ttR" secondAttribute="trailing" id="btz-S6-jlZ"/>
+                            <constraint firstItem="OmA-yF-ttR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JPC-N2-Dd6" secondAttribute="trailing" constant="50" id="cbn-fV-ebq"/>
+                            <constraint firstItem="ole-ss-O7Y" firstAttribute="leading" secondItem="OmA-yF-ttR" secondAttribute="leading" constant="20" id="gmx-Kt-7zU"/>
+                            <constraint firstItem="83N-d4-s00" firstAttribute="top" secondItem="d07-VM-nA1" secondAttribute="bottom" constant="10" id="iSA-hO-4RO"/>
+                            <constraint firstItem="OmA-yF-ttR" firstAttribute="trailing" secondItem="d07-VM-nA1" secondAttribute="trailing" constant="20" id="pWw-ZB-7oy"/>
+                            <constraint firstItem="d07-VM-nA1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4Lu-O0-IBF" secondAttribute="trailing" constant="50" id="tGW-bs-ar8"/>
+                            <constraint firstItem="4Lu-O0-IBF" firstAttribute="leading" secondItem="OmA-yF-ttR" secondAttribute="leading" constant="20" id="wCU-u4-dbf"/>
+                            <constraint firstItem="83N-d4-s00" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ole-ss-O7Y" secondAttribute="trailing" constant="50" id="zIv-rf-s2P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OmA-yF-ttR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KQ3-Dd-eGy"/>
                     <connections>
-                        <outlet property="backButton" destination="G8G-8j-Ya8" id="6H1-cg-YfW"/>
-                        <outlet property="priceLabel" destination="Aog-36-Bg6" id="7jg-5b-xad"/>
+                        <outlet property="backButton" destination="JPC-N2-Dd6" id="GgL-Ig-RqM"/>
+                        <outlet property="priceLabel" destination="83N-d4-s00" id="kY1-Xw-j8j"/>
+                        <outlet property="tableView" destination="gtb-hM-yj5" id="4nB-YP-LZC"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q0m-QV-NwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuu-Bs-946" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="112"/>
+            <point key="canvasLocation" x="-1152" y="112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PCy-Q7-jL8">
@@ -76,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="2yg-kQ-VW7" kind="relationship" relationship="rootViewController" id="tmk-FC-d4H"/>
+                        <segue destination="FFE-1D-BZQ" kind="relationship" relationship="rootViewController" id="E2o-i2-Pyj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wud-KQ-ZNI" userLabel="First Responder" sceneMemberID="firstResponder"/>

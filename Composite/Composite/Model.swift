@@ -73,4 +73,10 @@ class Folder: NovaPoshta {
     func contentCount() -> Int? {
         return self.arrayOfContent.count
     }
+    
+    func switchSomeProduct(from: Int, to: Int) {
+        let movedObject = self.arrayOfContent[from]
+        arrayOfContent.remove(at: from)
+        arrayOfContent.insert(movedObject, at: to)
+    }
 }

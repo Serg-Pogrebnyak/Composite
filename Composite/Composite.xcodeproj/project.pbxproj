@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B75A03B2297078C00C9AE65 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */; };
 		0B977DAD2293D99B000CE174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DAC2293D99B000CE174 /* AppDelegate.swift */; };
 		0B977DB22293D99B000CE174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB02293D99B000CE174 /* Main.storyboard */; };
 		0B977DB42293D99C000CE174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB32293D99C000CE174 /* Assets.xcassets */; };
@@ -14,17 +15,16 @@
 		0B977DC12293E23B000CE174 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DC02293E23B000CE174 /* Model.swift */; };
 		0B977DC42293E5B9000CE174 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DC32293E5B9000CE174 /* ProductCell.xib */; };
 		0B977DC62293E5E1000CE174 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DC52293E5E1000CE174 /* ProductCell.swift */; };
-		0BDF668E229405DF003E9745 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DBE2293E135000CE174 /* ProductListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		0B977DA92293D99B000CE174 /* Composite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Composite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B977DAC2293D99B000CE174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B977DB12293D99B000CE174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B977DB32293D99C000CE174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B977DB62293D99C000CE174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B977DB82293D99C000CE174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B977DBE2293E135000CE174 /* ProductListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewController.swift; sourceTree = "<group>"; };
 		0B977DC02293E23B000CE174 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0B977DC32293E5B9000CE174 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		0B977DC52293E5E1000CE174 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -62,8 +62,8 @@
 			children = (
 				0B977DC22293E59D000CE174 /* Cell */,
 				0B977DAC2293D99B000CE174 /* AppDelegate.swift */,
-				0B977DBE2293E135000CE174 /* ProductListTableViewController.swift */,
 				0B977DB02293D99B000CE174 /* Main.storyboard */,
+				0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */,
 				0B977DB32293D99C000CE174 /* Assets.xcassets */,
 				0B977DB52293D99C000CE174 /* LaunchScreen.storyboard */,
 				0B977DB82293D99C000CE174 /* Info.plist */,
@@ -155,8 +155,8 @@
 			files = (
 				0B977DC12293E23B000CE174 /* Model.swift in Sources */,
 				0B977DC62293E5E1000CE174 /* ProductCell.swift in Sources */,
+				0B75A03B2297078C00C9AE65 /* ProductListViewController.swift in Sources */,
 				0B977DAD2293D99B000CE174 /* AppDelegate.swift in Sources */,
-				0BDF668E229405DF003E9745 /* ProductListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
