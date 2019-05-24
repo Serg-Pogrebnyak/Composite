@@ -33,7 +33,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
         productArray.append(newFolder)
         folderFlow.last?.addComponent(new: newFolder)
         tableView.reloadData()
-        saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
+        saveProductBasket()
     }
     
     @IBAction func createProduct(_ sender: Any) {
@@ -42,7 +42,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
         folderFlow.last?.addComponent(new: newProduct)
         priceLabel.text = "price \(folderFlow.last!.price)"
         tableView.reloadData()
-        saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
+        saveProductBasket()
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -88,9 +88,27 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let removeAction = UIContextualAction(style: .destructive, title: "Delete") {(_, _, completionHandler: (Bool) -> Void) in
+            print("message was remove \(indexPath.row)")
+            guard self.folderFlow.count > 0 else {
+                completionHandler(false)
+                return
+            }
+            let currentFolder = self.folderFlow.last! as! Folder
+            currentFolder.removeObject(indexPath.row)
+            self.productArray.remove(at: indexPath.row)
+            self.saveProductBasket()
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [removeAction])
+    }
+    
     // MARK: - Table view cell moving
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+        return .delete
     }
 
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -99,5 +117,9 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         (folderFlow.last! as! Folder).switchSomeProduct(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
+    fileprivate func saveProductBasket() {
+        saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
     }
 }

@@ -105,4 +105,8 @@ class Folder: NSObject, NovaPoshta, NSCoding {
         arrayOfContent.remove(at: from)
         arrayOfContent.insert(movedObject, at: to)
     }
+    
+    func removeObject(_ index: Int) {
+        self.arrayOfContent.remove(at: index)
+    }
 }
