@@ -15,38 +15,25 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet fileprivate weak var backButton: UIButton!
     fileprivate var productArray = [NovaPoshta]()
     fileprivate var folderFlow = [NovaPoshta]()
+    fileprivate let saverAndReader = SaverAndReader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nib = UINib.init(nibName: "ProductCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ProductCell")
-        
-        let myFoolder = Folder(name: "My Foolder")
-        
-        let foolder = Folder(name: "Not big, but not small")
-        foolder.addComponent(new: Product(name: "new pen", price: 5))
-        foolder.addComponent(new: Product(name: "new pencill", price: 4))
-        foolder.addComponent(new: Product(name: "new book", price: 8))
-        
-        myFoolder.addComponent(new: foolder)
-        myFoolder.addComponent(new: Product(name: "Pen", price: 40))
-        myFoolder.addComponent(new: Product(name: "Pencil", price: 20))
-        myFoolder.addComponent(new: Folder(name: "Middle"))
-        myFoolder.addComponent(new: Product(name: "Book", price: 10))
-        myFoolder.addComponent(new: Folder(name: "Big"))
-        myFoolder.addComponent(new: Folder(name: "Small"))
-        
-        productArray.append(myFoolder)
-        print(myFoolder.price)
+
+        productArray = saverAndReader.getArrayOfFolder()
         tableView.reloadData()
     }
     
+    //MARK: - Button Action
     @IBAction func createFolder(_ sender: Any) {
         let newFolder = Folder(name: "New Folder")
         productArray.append(newFolder)
         folderFlow.last?.addComponent(new: newFolder)
         tableView.reloadData()
+        saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
     }
     
     @IBAction func createProduct(_ sender: Any) {
@@ -55,6 +42,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
         folderFlow.last?.addComponent(new: newProduct)
         priceLabel.text = "price \(folderFlow.last!.price)"
         tableView.reloadData()
+        saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -86,6 +74,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    // MARK: - Table view delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if productArray[indexPath.row].contentCount() ?? -1 >= 0 {
             tableView.deselectRow(at: indexPath, animated: false)
@@ -93,18 +82,17 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
             productArray = productArray[indexPath.row].showContent()!
             backButton.isEnabled = true
             priceLabel.text = "price \(folderFlow.last!.price)"
-            print(folderFlow)
             tableView.reloadData()
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    //cell moving
+    // MARK: - Table view cell moving
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
-    
+
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }

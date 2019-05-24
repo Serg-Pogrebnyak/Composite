@@ -16,7 +16,18 @@ protocol NovaPoshta {
     func contentCount() -> Int?
 }
 
-class Product: NovaPoshta {
+class Product: NSObject, NovaPoshta, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(price, forKey: "price")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let price = (aDecoder.decodeObject(forKey: "price") as? Int) == nil ? 0 : 0
+        self.init(name: name, price: price)
+    }
+    
     var price: Int
     
     var name: String
@@ -39,7 +50,23 @@ class Product: NovaPoshta {
     }
 }
 
-class Folder: NovaPoshta {
+class Folder: NSObject, NovaPoshta, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(arrayOfContent, forKey: "array")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let array = aDecoder.decodeObject(forKey: "array") as! [NovaPoshta]
+        self.init(name: name, array: array)
+    }
+    
+    private init (name: String, array: [NovaPoshta]) {
+        self.name = name
+        self.arrayOfContent = array
+    }
+    
     var price: Int {
         get {
             var totalFolderPrice = 0
@@ -59,7 +86,6 @@ class Folder: NovaPoshta {
     
     init(name: String) {
         self.name = name
-        self.price = 0
     }
     
     func showContent() -> [NovaPoshta]? {
