@@ -58,6 +58,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
             backButton.isEnabled = false
             tableView.reloadData()
         }
+        scrollToTopTableView()
     }
     
     @IBAction func editTable(_ sender: Any) {
@@ -83,6 +84,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
             backButton.isEnabled = true
             priceLabel.text = "price \(folderFlow.last!.price)"
             tableView.reloadData()
+            scrollToTopTableView()
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -100,6 +102,7 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
             currentFolder.removeObject(indexPath.row)
             self.productArray.remove(at: indexPath.row)
             self.saveProductBasket()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
         }
         
@@ -121,5 +124,9 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
     
     fileprivate func saveProductBasket() {
         saverAndReader.saveProductAndFolder((folderFlow.count > 0 ? folderFlow.first : productArray.first)!)
+    }
+    
+    fileprivate func scrollToTopTableView() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }
