@@ -127,6 +127,8 @@ class ProductListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     fileprivate func scrollToTopTableView() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        if productArray.count != 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
