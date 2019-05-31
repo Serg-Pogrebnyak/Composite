@@ -24,7 +24,7 @@ class Product: NSObject, NovaPoshta, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: "name") as! String
-        let price = (aDecoder.decodeObject(forKey: "price") as? Int) == nil ? 0 : 0
+        let price = Int(aDecoder.decodeInt32(forKey: "price"))
         self.init(name: name, price: price)
     }
     
