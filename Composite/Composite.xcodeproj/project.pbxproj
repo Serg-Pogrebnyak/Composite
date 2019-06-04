@@ -10,6 +10,8 @@
 		0B04F3782298106A00E57869 /* SaverAndReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04F3772298106A00E57869 /* SaverAndReader.swift */; };
 		0B2C6C7222A1A57C003E6C86 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2C6C7022A1A57C003E6C86 /* ProductCell.swift */; };
 		0B2C6C7322A1A57C003E6C86 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B2C6C7122A1A57C003E6C86 /* ProductCell.xib */; };
+		0B3212E822A4D683004C3F8C /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3212E722A4D683004C3F8C /* CustomView.xib */; };
+		0B3212EA22A4D6F3004C3F8C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3212E922A4D6F3004C3F8C /* CustomView.swift */; };
 		0B75A03B2297078C00C9AE65 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */; };
 		0B977DAD2293D99B000CE174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B977DAC2293D99B000CE174 /* AppDelegate.swift */; };
 		0B977DB22293D99B000CE174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B977DB02293D99B000CE174 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		0B04F3772298106A00E57869 /* SaverAndReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverAndReader.swift; sourceTree = "<group>"; };
 		0B2C6C7022A1A57C003E6C86 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		0B2C6C7122A1A57C003E6C86 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		0B3212E722A4D683004C3F8C /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		0B3212E922A4D6F3004C3F8C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		0B977DA92293D99B000CE174 /* Composite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Composite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B977DAC2293D99B000CE174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3212E622A4D66A004C3F8C /* Custom alert */ = {
+			isa = PBXGroup;
+			children = (
+				0B3212E722A4D683004C3F8C /* CustomView.xib */,
+				0B3212E922A4D6F3004C3F8C /* CustomView.swift */,
+			);
+			path = "Custom alert";
+			sourceTree = "<group>";
+		};
 		0B977DA02293D99B000CE174 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		0B977DAB2293D99B000CE174 /* Composite */ = {
 			isa = PBXGroup;
 			children = (
+				0B3212E622A4D66A004C3F8C /* Custom alert */,
 				0B977DC22293E59D000CE174 /* Cell */,
 				0B977DAC2293D99B000CE174 /* AppDelegate.swift */,
 				0B75A03A2297078C00C9AE65 /* ProductListViewController.swift */,
@@ -146,6 +160,7 @@
 				0B977DB42293D99C000CE174 /* Assets.xcassets in Resources */,
 				0B977DB22293D99B000CE174 /* Main.storyboard in Resources */,
 				0B2C6C7322A1A57C003E6C86 /* ProductCell.xib in Resources */,
+				0B3212E822A4D683004C3F8C /* CustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +174,7 @@
 				0B2C6C7222A1A57C003E6C86 /* ProductCell.swift in Sources */,
 				0B977DC12293E23B000CE174 /* Model.swift in Sources */,
 				0B04F3782298106A00E57869 /* SaverAndReader.swift in Sources */,
+				0B3212EA22A4D6F3004C3F8C /* CustomView.swift in Sources */,
 				0B75A03B2297078C00C9AE65 /* ProductListViewController.swift in Sources */,
 				0B977DAD2293D99B000CE174 /* AppDelegate.swift in Sources */,
 			);
